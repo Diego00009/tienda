@@ -1,0 +1,7 @@
+com\tienda_v1\controller\ClienteController.class
+com\tienda_v1\services\ClienteService.class
+com\tienda_v1\controller\IndexController.class
+com\tienda_v1\TiendaApplication.class
+com\tienda_v1\service\impl\ClienteServiceImpl.class
+com\tienda_v1\dao\ClienteDao.class
+com\tienda_v1\domain\Cliente.class

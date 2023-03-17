@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+     <head th:replace="~{layout/plantilla :: head}">
+        <title>Tpaco</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        
+        <h2>Datos de Clientes</h2>
+        <br>
+        <hr>
+        <a th:href="@{//}">Regresar</a>
+        
+        <form th:action="@{/cliente/guardar}"
+            method="post"
+            th:object="${cliente}">
+            
+                <input type="hidden" 
+                   name="idCliente" 
+                   th:field="*{idCliente}"/>
+            
+            <label>Nombre</label>
+            <input type="text" 
+                   name="nombre" 
+                   value="" 
+                   th:field="*{nombre}"
+                   size="30" />
+            <br>
+            <label>Apellido</label>
+            <input type="text" 
+                   name="apellidos" 
+                   value="" 
+                   th:field="*{apellidos}"
+                   size="40" />
+            <br>
+            <label>Correo</label>
+            <input type="email" 
+                   name="correo" 
+                   value="" 
+                   th:field="*{correo}"
+                   size="15" />
+            <br>
+            <label>Telefono</label>
+            <input type="tel" 
+                   name="telefono" 
+                   value="" 
+                   th:field="*{telefono}"
+                   size="10" />
+            <br>
+            <input type="submit" value="Guardar" />
+        </form>
+    </body>
+</html>

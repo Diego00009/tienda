@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Tpaco</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <h2>Facturacion</h2>
+        <br>
+        <hr>
+        <a th:href="@{/cliente/nuevo}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nuevo producto</a>
+
+        <div th:if="${clientes !=null and !clientes.empty}">
+            <table class="table table-strype ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th> Apellidos</th>
+                        <th> Correo</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cliente : ${clientes}">
+                        <td>[[${cliente.nombre}]]</td>
+                        <td>[[${cliente.apellidos}]]</td>
+                        <td>[[${cliente.correo}]]</td>
+                        <td> [[${cliente.telefono}]]</td>
+                        <td>
+                            <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}"
+                               class="btn btn-danger">
+                               <i class="fas fa-trash"></i> Eliminar </a>
+                            <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}"
+                               class="btn btn-success">
+                               <i class="fas fa-pencil"></i> Modificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${clientes ==null or clientes.empty}">
+            <h3>No hay productos</h3>
+        </div>
+    </body>
+</html>
